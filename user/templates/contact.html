@@ -1,0 +1,68 @@
+{% extends 'userhome.html' %}
+{% load static %}
+{% block body %}
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+<!-- Normal Breadcrumb Begin -->
+<section class="normal-breadcrumb set-bg" data-setbg="{% static 'userstatic/img/normal-breadcrumb.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="normal__breadcrumb__text">
+                    <h2>Contact</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Normal Breadcrumb End -->
+
+<!-- Signup Section Begin -->
+<section class="signup spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login__form">
+                    <h3>Send us a message</h3>
+                    <form action="{% url 'contact' %}" method="post">
+                        {% csrf_token %}
+                        <div class="input__item">
+                          <input type="text" placeholder="Email address" name="email" value="{{user_email}}" readonly>
+                          <span class="icon_mail"></span>
+                        </div>
+                        <div class="bor8 m-b-30">
+                            <textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="message" placeholder="How Can We Help?" style="height: 200px;width: 375px;"></textarea>
+                        </div>
+                           <button type="submit" class="site-btn">Send</button>
+                    </form>
+                    <h5>Already have an account? <a href="{% url 'userlogin' %}">Log In!</a></h5>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                
+                 <div style="text-align: center;">  
+                    <ul>
+                        <li style="color: azure;">ADDRESS</li>
+                        <li class="address" style="color: rgb(72, 72, 251);"><i class="mtext-110 cl2"></i> Coza Store Center 8th floor, Kochi,India</a></li>
+                        <li style="color: azure;">LETS TALK'S</li>
+                        <li style="color: rgb(74, 74, 199);"><a href="#" class="phone" style="color: rgb(74, 74, 199);"><i class="fa fa-phone" style="color: rgb(71, 71, 183);"></i> +01544947</a></li>
+                        <li style="color: azure;">SUPPORT</li>
+                        <li style="color: rgb(74, 74, 199);"><a href="#" class="gmail" style="color: rgb(74, 74, 199);"><i class="fa fa-mail"></i> movievilla@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Signup Section End -->
+        </div>
+    </div>
+</section>
+<!-- Signup Section End --> 
+</div>
+</body>
+
+</html>
+{% endblock %}

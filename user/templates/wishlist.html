@@ -1,0 +1,45 @@
+{% extends 'userhome.html' %}
+{% block body %}
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="recent__product">
+                    
+                    <div class="row">
+                        {% for i in view %}
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{i.films.movie_poster.url}}">
+                                    <div class="ep">18 / 18</div>
+                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                </div>
+                                <div class="product__item__text">
+                                    <ul>
+                                        <li>{{i.films.genre_id.genre_name}}</li>
+                                       <a href="{% url 'delete2' i.id %}"><button class="btn btn-primary" style="margin-left: 180px;">Remove</button</a>
+                                    </ul>
+                                    <h5><a href="{% url 'usersingleview' i.films.id  %}">{{i.films.movie_name}}</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+            </div>
+            
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</body>
+
+</html>
+{% endblock %}

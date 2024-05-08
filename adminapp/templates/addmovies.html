@@ -1,0 +1,48 @@
+{% extends 'adminhome.html' %}
+
+{% block body %}
+<!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">ADD MOVIES</h6>
+                <form action="{% url 'addmovies' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="categories" class="form-label">Select Genre</label>
+                        <select name="genres" id="" class="form-control">
+                            <option value="">Select Genre</option>
+                
+                            {% for i in genres %}
+                                <option value="{{i.id}}">{{i.genre_name}}</option>
+                            {% endfor %}
+                        </select> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="movie_name" class="form-label">Movie Name</label>
+                        <input type="text" class="form-control" id="movie_name" name="movie_name">   
+                    </div>
+                    <div class="mb-3">
+                        <label for="director_name" class="form-label">Director</label>
+                        <input type="text" class="form-control" id="director_name" name="director_name">   
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="duration" class="form-label">Duration</label>
+                        <input type="time" class="form-control" id="duration" name="duration">   
+                    </div>
+                    <div class="mb-3">
+                        <label for="poster" class="form-label">Poster</label>
+                        <input type="file" class="form-control" id="poster" name="poster">   
+                    </div>
+                    <div class="mb-3">
+                        <label for="movie" class="form-label">Movie</label>
+                        <input type="file" class="form-control" id="movie" name="movie">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+{% endblock %}

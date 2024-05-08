@@ -1,0 +1,25 @@
+{% extends 'adminhome.html' %}
+
+{% block body %}
+<h3 class="mb-4" style="text-align: center; color: blue;margin-top: 20px;">ADD NOTIFICATION</h3>
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                
+                <form action="{% url 'addnotification' %}" method="post" >
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="heading" class="form-label">Heading</label>
+                        <input type="text" class="form-control" id="heading" name="heading">   
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <input type="text" class="form-control" id="message" name="message">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+{% endblock %}

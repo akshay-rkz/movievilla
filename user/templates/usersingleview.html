@@ -1,0 +1,93 @@
+{% extends 'userhome.html' %}
+{% load static %}
+{% block body %}
+<section class="anime-details spad">
+    {% for i in films %}
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <div class="anime__video__player">
+                    <video id="player" playsinline controls data-poster="{{i.movie_poster.url}}">
+                        <source src="{{i.movie_file.url}}" type="video/mp4" />
+                        <!-- Captions are optional -->
+                        <track kind="captions" label="English captions" src="#" srclang="en" default />
+                    </video>
+                    <h2 style="color: rgb(255, 255, 255);padding-top: 15px;"><b>{{i.movie_name}}</b></h2>
+                    <h4 style="color: rgb(243, 249, 249);padding-top: 15px; "><b>Duration: {{i.movie_duration}}hrs</b></h4>
+                    
+                    <div>
+                    <div style=" padding-top: 5px;">
+                        <a href="{% url 'like' i.id %}"><i class="fa fa-thumbs-up"
+                                style="font-size:28px;color:rgb(86, 137, 247); padding-top: 20px;"></i></a>
+                        <a href="{% url 'dislike' i.id %}"><i class="fa fa-thumbs-down"
+                                style="font-size:28px;color:rgb(124, 124, 242);padding-left: 30px;"></i></a>
+                    
+                        <div style="display: flex; align-items: center;">
+                            <h6 style="color: azure;padding-top: 5px; margin-right: 20px;">{{likecount}}</h6>
+                            <h6 style="color: azure;padding-top: 5px;margin-left: 30px;">{{dislikecount}}</h6>
+                        </div>
+                    </div>
+                    </div>
+                   
+                    <h4 style="color: rgb(249, 252, 252);padding-top: 15px;">Directed by: {{i.director}}</h4>
+
+
+                    <div>
+                        <h3 style="color: rgb(237, 248, 248);"><ins>Movie cast</ins></h3>
+                        <br>
+                        <div class="col-lg-12">
+                            <div class="row">
+                                {% for i in castename %}
+                                <div class="anime__review__item col-lg-4">
+                                    <div class="anime__review__item__pic">
+                                        <img src="{{i.castimage.url}}" alt="">
+                                    </div>
+                                    <div class="anime__review__item__text" style="width: 250px;">
+                                        <h6>{{i.castname}}</h6>
+
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="anime__details__review">
+                    <div class="section-title">
+                        <h5>Reviews</h5>
+                    </div>
+                    <div class="anime__review__item">
+                        {% for i in comment %}
+                        <div class="anime__review__item__text">
+                            <h6>{{i.userid.username}} - <span>{{i.time}}</span></h6>
+                            <p>{{i.comment}}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="anime__details__form">
+                <div class="section-title">
+
+                    <h5>Your Comment</h5>
+                </div>
+                <form action="{% url 'writecomments' i.id %}" method="post">
+                    {% csrf_token %}
+                    <textarea placeholder="Your Comment" name="comment" style="color: black;"></textarea>
+                    <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

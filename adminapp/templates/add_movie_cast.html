@@ -1,0 +1,21 @@
+{% extends 'adminhome.html' %}
+{% load static %}
+
+{% block body %}
+<div class="row">
+  <h3 style="margin-top: 20px; text-align: center;color: blue;">ADD & VIEW MOVIE CAST</h3>
+{% for i in cast %}
+<div  class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{i.movie_poster.url}}" alt="Card image cap" height="200px">
+    <div class="card-body">
+      <h5 class="card-title">{{i.movie_name}}</h5>
+      
+    </div>
+    <ul class="list-group list-group-flush">
+      <li  class="list-group-item"><a href="{% url 'addcast' i.id %}">Add cast</a></li>
+      <li class="list-group-item"><a href="{% url 'viewcast' i.id %}">View cast</a></li>
+    </ul>
+  </div>
+  {% endfor %}   
+</div>
+{% endblock %}

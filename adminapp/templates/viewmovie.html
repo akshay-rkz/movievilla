@@ -1,0 +1,38 @@
+{% extends 'adminhome.html' %}
+{% load static %}
+{% block body %}
+<h6 class="mb-4">VIEW MOVIES</h6>
+<div class="col-12">
+    <div class="bg-light rounded h-100 p-4">
+       
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Genre</th>
+                    <th scope="col">MovieName</th>
+                    <th scope="col">Director Name</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Poster</th>
+                    <th scope="col">Movie</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in movie %}
+                <tr>
+                    <th scope="row" style="padding-top: 70px;">{{i.genre_id.genre_name}}</th>
+                    <td style="padding-top: 70px;">{{i.movie_name}}</td>
+                    <td style="padding-top: 70px;">{{i.director}}</td>
+                    <td style="padding-top: 70px;">{{i.movie_duration}}</td>
+                    <td><img src="{{i.movie_poster.url}}" alt="" width="200px" height="200px"></td>
+                    <td><video src="{{i.movie_file.url}}" controls width="200px" height="200px"></video></td>
+                    <td style="padding-top: 70px;"><a href="{% url 'edit' i.id %}"><button class="btn btn-primary">Edit</button></a></td>
+                    <td style="padding-top: 70px;"><a href="{% url 'delete_movies' i.id %}"><button class="btn btn-danger">Delete</button></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

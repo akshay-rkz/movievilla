@@ -1,0 +1,17 @@
+{% extends 'adminhome.html' %}
+{% load static %}
+{% block body %}
+<div class="row">
+    <h4 style="text-align: center; margin-top: 20px; color: rgb(40, 57, 247);" >VIEW CAST</h4>
+    {% for i in moviecast %}
+    <div  class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{i.castimage.url}}" alt="Card image cap" height="200px">
+        <div class="card-body">
+          <h5 class="card-title">{{i.castname}}</h5>
+          <a href="{% url 'deletecast' i.id %}"><button class="btn btn-danger">Delete</button></a>
+          
+        </div>  
+      </div>
+      {% endfor %}   
+    </div>
+{% endblock%}
