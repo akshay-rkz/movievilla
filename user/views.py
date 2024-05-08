@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from adminapp.models import *
 from user.models import *
 from django.db.models import Subquery
+from django.http import HttpResponse
+
 
 
 # Create your views here.
@@ -201,3 +203,5 @@ def dislike(request,movieid):
         return redirect(f'/usersingleview/{movieid}')
     return render(request,'usersingleview.html')
 
+def sees(request):
+    return HttpResponse('haii')
