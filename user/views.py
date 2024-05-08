@@ -203,5 +203,4 @@ def dislike(request,movieid):
         return redirect(f'/usersingleview/{movieid}')
     return render(request,'usersingleview.html')
 
-def sees(request):
-    return HttpResponse('haii')
+

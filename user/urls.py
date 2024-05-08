@@ -17,6 +17,6 @@ urlpatterns=[
     path('search',views.search,name='search'),
     path('like/<int:movieid>',views.like,name='like'),
     path('dislike/<int:movieid>',views.dislike,name='dislike'),
-    path('sees',views.sees,name='sees'),
+   
        
 ]
