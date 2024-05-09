@@ -32,11 +32,11 @@
                         <form action="{% url 'userlogin' %}" method="post">
                             {% csrf_token %}
                             <div class="input__item">
-                                <input type="text" placeholder="Email address" name="email">
+                                <input type="text" placeholder="Email address" name="email" style="color: black;">
                                 <span class="icon_mail"></span>
                             </div>
                             <div class="input__item">
-                                <input type="password" placeholder="Password" name="password">
+                                <input type="password" placeholder="Password" name="password" style="color: black;">
                                 <span class="icon_lock"></span>
                             </div>
                             <button type="submit" class="site-btn">Login Now</button>

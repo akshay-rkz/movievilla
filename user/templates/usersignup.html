@@ -33,28 +33,28 @@
                         <h3>Sign Up</h3>
                         <form action="{% url 'usersignup' %}" method="post">
                             {% csrf_token %}
-                            
+                        
                             <div class="input__item">
-                                <input type="text" placeholder="Your Name" name="username">
+                                <input type="text" placeholder="Your Name" name="username" style="color: black;">
                                 <span class="icon_profile"></span>
                             </div>
                             <div class="input__item">
-                                <input type="text" placeholder="Email address" name="email">
+                                <input type="text" placeholder="Email address" name="email" style="color: black;">
                                 <span class="icon_mail"></span>
                             </div>
                             <div class="input__item">
-                                <input type="text" placeholder="Phone Number" name="phonenumber">
+                                <input type="text" placeholder="Phone Number" name="phonenumber" style="color: black;">
                                 <span class="icon_phone"></span>
                             </div>
                             <div class="input__item">
-                                <input type="password" placeholder="Password" name="password">
+                                <input type="password" placeholder="Password" name="password" style="color: black;">
                                 <span class="icon_lock"></span>
                             </div>
                             <div class="input__item">
-                                <input type="password" placeholder="Confirm Password" name="confirmpassword">
+                                <input type="password" placeholder="Confirm Password" name="confirmpassword" style="color: black;">
                                 <span class="icon_lock"></span>
                             </div>
-                            
+                        
                             <button type="submit" class="site-btn">Login Now</button>
                         </form>
                         <h5>Already have an account? <a href="{% url 'userlogin' %}">Log In!</a></h5>
